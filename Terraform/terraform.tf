@@ -28,7 +28,7 @@ module "vpc" {
   enable_dns_hostnames = true #Required for RDS database setup.
 
   ##Subnet Variables definition
-  public_subnet_cidrs = ["10.0.0.0/24", "10.0.0.16/24"]
+  public_subnet_cidrs = ["10.0.0.0/28", "10.0.0.16/28"]
   #private_subnet_cidrs = ["10.0.3.0/24"]
   azs = ["us-east-1a", "us-east-1b"]
 

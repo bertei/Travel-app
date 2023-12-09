@@ -19,46 +19,46 @@ variable "enable_dns_hostnames" {
 
 ##Subnet Variables
 variable "public_subnet_cidrs" {
-  type = list(string)
+  type        = list(string)
   description = "Public subnet CIDR values"
-  default = []
+  default     = []
 }
 
 variable "private_subnet_cidrs" {
-  type = list(string)
+  type        = list(string)
   description = "Private subnet CIDR values"
-  default = []
+  default     = []
 }
 
 variable "azs" {
-  type = list(string)
+  type        = list(string)
   description = "Subnets AZ's"
-  default = []
+  default     = []
 }
 
 
 ##IGW
 variable "create_igw" {
-  type = bool
+  type        = bool
   description = "Enables IGW resource creation."
-  default = false
+  default     = false
 }
 
 variable "igw_tag" {
-  type = string
+  type        = string
   description = "IGW tag name."
-  default = false
+  default     = false
 }
 
 ##Route table
 variable "route_table_tag" {
-  type = string
+  type        = string
   description = "Route table tag name."
-  default = false
+  default     = false
 }
 
 variable "create_igw_route" {
-  type = bool
+  type        = bool
   description = "Enables IGW route resource creation."
-  default = false
+  default     = false
 }

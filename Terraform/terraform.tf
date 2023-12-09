@@ -2,7 +2,7 @@
 terraform {
   backend "s3" {
     bucket = "travelapp-tf-state"
-    key = "terraform.tfstate"
+    key    = "terraform.tfstate"
     region = "us-east-1"
   }
 }
@@ -23,17 +23,17 @@ module "vpc" {
   source = "./Modules//vpc"
 
   #VPC Variables definition
-  vpc_cidr_block = "10.0.0.0/24"
-  vpc_tag = "travelapp-vpc"
+  vpc_cidr_block       = "10.0.0.0/24"
+  vpc_tag              = "travelapp-vpc"
   enable_dns_hostnames = true #Required for RDS database setup.
 
   ##Subnet Variables definition
-  public_subnet_cidrs = ["10.0.1.0/24", "10.0.2.0/24"]
+  public_subnet_cidrs = ["10.0.0.0/24", "10.0.0.16/24"]
   #private_subnet_cidrs = ["10.0.3.0/24"]
   azs = ["us-east-1a", "us-east-1b"]
 
   ##IGW Variables definition
-  create_igw = true
-  igw_tag = "travelapp-igw"
+  create_igw       = true
+  igw_tag          = "travelapp-igw"
   create_igw_route = true
 }

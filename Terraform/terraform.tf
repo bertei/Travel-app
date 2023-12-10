@@ -30,7 +30,7 @@ module "vpc" {
   ##Subnet Variables definition
   public_subnet_cidrs = ["10.0.0.0/28", "10.0.0.16/28"]
   #private_subnet_cidrs = ["10.0.3.0/24"]
-  azs = ["us-east-1a", "us-east-1b"]
+  azs                = ["us-east-1a", "us-east-1b"]
   public_subnets_tag = "travelapp-public-subnet"
 
   ##IGW & Route Variables definition
@@ -60,7 +60,7 @@ module "public_sg" {
       to_port     = 443
       protocol    = "TCP"
       cidr_blocks = ["0.0.0.0/0"]
-    } 
+    }
   }
 
   sg_egress = {
@@ -89,4 +89,10 @@ module "rds_public_sg" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
+}
+
+module "ecr" {
+  source = "./Modules//ecr"
+
+  ecr_repo_name = "travelapp-ecr"
 }

@@ -36,6 +36,7 @@ No modules.
 | <a name="input_igw_tag"></a> [igw\_tag](#input\_igw\_tag) | IGW tag name. | `string` | `false` | no |
 | <a name="input_private_subnet_cidrs"></a> [private\_subnet\_cidrs](#input\_private\_subnet\_cidrs) | Private subnet CIDR values | `list(string)` | `[]` | no |
 | <a name="input_public_subnet_cidrs"></a> [public\_subnet\_cidrs](#input\_public\_subnet\_cidrs) | Public subnet CIDR values | `list(string)` | `[]` | no |
+| <a name="input_public_subnets_tag"></a> [public\_subnets\_tag](#input\_public\_subnets\_tag) | Resource tag name | `string` | `null` | no |
 | <a name="input_route_table_tag"></a> [route\_table\_tag](#input\_route\_table\_tag) | Route table tag name. | `string` | `false` | no |
 | <a name="input_vpc_cidr_block"></a> [vpc\_cidr\_block](#input\_vpc\_cidr\_block) | The VPC IPv4 CIDR block | `string` | `null` | no |
 | <a name="input_vpc_tag"></a> [vpc\_tag](#input\_vpc\_tag) | Resource tag name | `string` | `null` | no |

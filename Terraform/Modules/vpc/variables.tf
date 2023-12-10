@@ -36,6 +36,11 @@ variable "azs" {
   default     = []
 }
 
+variable "public_subnets_tag" {
+  description = "Resource tag name"
+  type        = string
+  default     = null
+}
 
 ##IGW
 variable "create_igw" {

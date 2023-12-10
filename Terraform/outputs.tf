@@ -12,3 +12,7 @@ output "public_security_group_id" {
 output "rds_security_group_id" {
   value = module.rds_public_sg.security_group_id
 }
+
+output "ecr_repo_url" {
+  value = module.ecr.ecr_repo_url
+}

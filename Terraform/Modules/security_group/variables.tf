@@ -1,23 +1,23 @@
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "VPC ID"
 }
 
 variable "sg_name" {
-  type = string
+  type        = string
   description = "Security group name"
 }
 
 variable "sg_ingress" {
-  type = any
+  type        = any
   description = "Map containing SG's ingress rules"
-  default = {}
+  default     = {}
 }
 
 variable "sg_egress" {
-  type = any
+  type        = any
   description = "Map containing SG's egress rules"
-  default = {}
+  default     = {}
 }
 
 #variable "sg_name_tag" {

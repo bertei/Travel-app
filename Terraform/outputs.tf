@@ -16,3 +16,7 @@ output "rds_security_group_id" {
 output "ecr_repo_url" {
   value = module.ecr.ecr_repo_url
 }
+
+output "ecs_cluster_id" {
+  value = module.ecs_cluster.ecs_cluster_id
+}

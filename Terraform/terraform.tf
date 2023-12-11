@@ -96,3 +96,9 @@ module "ecr" {
 
   ecr_repo_name = "travelapp-ecr"
 }
+
+module "ecs" {
+  source = "./Modules/ecs//cluster"
+
+  ecs_cluster_name = "travelapp-cluster"
+}

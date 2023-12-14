@@ -20,3 +20,11 @@ output "ecr_repo_url" {
 output "ecs_cluster_id" {
   value = module.ecs_cluster.ecs_cluster_id
 }
+
+output "ssm_param_arns" {
+  value = module.ecs_ssm.ssm_param_arns
+}
+
+output "ssm_db_host" {
+  value = module.ecs_ssm.ssm_db_host
+}

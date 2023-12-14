@@ -102,3 +102,30 @@ module "ecs_cluster" {
 
   ecs_cluster_name = "travelapp-cluster"
 }
+
+module "ecs_taskdef_travelapp" {
+  source = "./Modules/ecs//task_definition"
+
+  #Task definitions
+  task_name                = "travelapp-taskdefintion"
+  requires_compatibilities = ["FARGATE"]
+  network_mode             = "awsvpc"
+
+  #Container definitions
+  container_name = "travelapp-container"
+  image          = module.ecr.ecr_repo_url
+  container_port = 80
+  host_port      = 80
+  db_hostname_value = module.ecs_ssm.ssm_db_host
+}
+
+module "ecs_ssm" {
+  source = "./Modules//ssm"
+
+  ssm_parameters = {
+    DB_HOSTNAME = {
+      value = "ZGItaG9zdC0xMjM="
+      type  = "String"
+    }
+  }
+}

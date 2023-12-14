@@ -68,7 +68,7 @@ resource "aws_iam_policy" "main" {
 
 data "aws_iam_policy_document" "custom" {
   statement {
-    sid = "ECS-Allow-ECR-Logs-SSM-KMS-1"
+    sid = "ecsAllowAll"
     actions = [
       "ecr:GetAuthorizationToken",
       "ecr:BatchCheckLayerAvailability",

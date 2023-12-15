@@ -1,0 +1,41 @@
+variable "service_name" {
+  type        = string
+  description = "ECS Service name"
+  default     = null
+}
+
+variable "cluster_id" {
+  type        = string
+  description = "ECS Cluster id retrieved from ecs cluster module."
+  default     = null
+}
+
+variable "task_definition_arn" {
+  type        = string
+  description = "ECS Task definition arn retrieved from ecs task def module."
+  default     = null
+}
+
+variable "launch_type" {
+  type        = string
+  description = "FARGATE, FARGATE_SPOT, EC2"
+  default     = null
+}
+
+variable "desired_count" {
+  type        = number
+  description = "Amount of containers you want to run"
+  default     = 1
+}
+
+variable "subnets_id" {
+  type        = any
+  description = "Subnets id's where the ecs container will live."
+  default     = []
+}
+
+variable "security_groups_id" {
+  type        = any
+  description = "SG's id's which ecs container will utilize."
+  default     = []
+}

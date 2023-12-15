@@ -112,10 +112,10 @@ module "ecs_taskdef_travelapp" {
   network_mode             = "awsvpc"
 
   #Container definitions
-  container_name = "travelapp-container"
-  image          = module.ecr.ecr_repo_url
-  container_port = 80
-  host_port      = 80
+  container_name    = "travelapp-container"
+  image             = module.ecr.ecr_repo_url
+  container_port    = 80
+  host_port         = 80
   db_hostname_value = module.ecs_ssm.ssm_db_host
 }
 
@@ -128,4 +128,16 @@ module "ecs_ssm" {
       type  = "String"
     }
   }
+}
+
+module "ecs_service" {
+  source = "./Modules/ecs//service"
+
+  service_name        = "travelapp-service"
+  cluster_id          = module.ecs_cluster.ecs_cluster_id
+  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
+  launch_type         = "FARGATE"
+
+  subnets_id         = module.vpc.public_subnets_id
+  security_groups_id = [module.public_sg.security_group_id]
 }

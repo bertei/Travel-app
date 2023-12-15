@@ -64,6 +64,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ecs-fargate-service
-          cluster: ecs-fargate-cluster
+          service: travelapp-service
+          cluster: travelapp-cluster
           wait-for-service-stability: true

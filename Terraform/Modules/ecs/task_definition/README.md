@@ -42,5 +42,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ecs_taskdef_arn"></a> [ecs\_taskdef\_arn](#output\_ecs\_taskdef\_arn) | n/a |
 <!-- END_TF_DOCS -->

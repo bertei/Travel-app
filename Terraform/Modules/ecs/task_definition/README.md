@@ -34,6 +34,7 @@ No modules.
 | <a name="input_db_hostname_value"></a> [db\_hostname\_value](#input\_db\_hostname\_value) | DB Hostname value. | `any` | `null` | no |
 | <a name="input_host_port"></a> [host\_port](#input\_host\_port) | Host Port | `number` | `0` | no |
 | <a name="input_image"></a> [image](#input\_image) | ECS Task container image | `string` | `null` | no |
+| <a name="input_image_version"></a> [image\_version](#input\_image\_version) | ECS Task container image version | `string` | `null` | no |
 | <a name="input_memory"></a> [memory](#input\_memory) | Memory to allocate | `number` | `1024` | no |
 | <a name="input_network_mode"></a> [network\_mode](#input\_network\_mode) | none, bridge, awsvpc, and host | `string` | `null` | no |
 | <a name="input_requires_compatibilities"></a> [requires\_compatibilities](#input\_requires\_compatibilities) | Fargate, Fargate Spot, EC2 | `any` | `[]` | no |

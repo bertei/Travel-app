@@ -110,7 +110,7 @@ module "ecs_taskdef_travelapp" {
   task_name                = "travelapp-taskdefintion"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-
+  image_version            = "1"
   #Container definitions
   container_name    = "travelapp-container"
   image             = module.ecr.ecr_repo_url

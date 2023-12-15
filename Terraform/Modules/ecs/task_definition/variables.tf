@@ -35,6 +35,12 @@ variable "image" {
   default     = null
 }
 
+variable "image_version" {
+  description = "ECS Task container image version"
+  type        = string
+  default     = null
+}
+
 variable "cpu" {
   type        = number
   description = "CPU to allocate"

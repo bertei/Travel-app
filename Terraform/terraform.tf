@@ -141,3 +141,10 @@ module "ecs_service" {
   subnets_id         = module.vpc.public_subnets_id
   security_groups_id = [module.public_sg.security_group_id]
 }
+
+module "rds" {
+  source = "./Modules//rds"
+
+  db_name = "travelapp-rds"
+  engine = ""
+}

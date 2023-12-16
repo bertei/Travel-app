@@ -145,8 +145,14 @@ module "ecs_service" {
 module "rds" {
   source = "./Modules//rds"
 
-  db_name = "travelapp-rds"
-  engine = "mysql"
-  engine_ver = "8.0.33"
-  
+  #Config parameters
+  db_name           = "travelapp-rds"
+  engine            = "mysql"
+  engine_ver        = "8.0.33"
+  instance_class    = "db.t3.micro"
+  apply_immediately = true
+
+  #Networking parameters
+  subnet_ids             = module.vpc.public_subnets_id
+  vpc_security_group_ids = module.public_sg.security_group_id
 }

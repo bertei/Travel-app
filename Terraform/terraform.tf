@@ -146,5 +146,7 @@ module "rds" {
   source = "./Modules//rds"
 
   db_name = "travelapp-rds"
-  engine = ""
+  engine = "mysql"
+  engine_ver = "8.0.33"
+  
 }

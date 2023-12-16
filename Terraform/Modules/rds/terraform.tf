@@ -12,7 +12,7 @@ resource "aws_db_instance" "main" {
 
   #Networking
   db_subnet_group_name   = aws_db_subnet_group.main.name
-  vpc_security_group_ids = var.subnet_ids
+  vpc_security_group_ids = var.vpc_security_group_ids
 }
 
 resource "aws_db_subnet_group" "main" {

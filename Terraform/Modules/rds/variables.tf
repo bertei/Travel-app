@@ -60,3 +60,8 @@ variable "subnet_ids" {
   description = "A list of VPC subnet IDs."
   default     = []
 }
+
+variable "vpc_security_group_ids" {
+  type = list(string)
+  description = "List of VPC SG's."
+}

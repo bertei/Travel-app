@@ -122,22 +122,35 @@ module "ecs_taskdef_travelapp" {
 module "ecs_ssm" {
   source = "./Modules//ssm"
 
+  ##SSM Parameters values must be base64
   ssm_parameters = {
-    DB_HOSTNAME = {
+    DB_HOST = {
       value = "ZGItaG9zdC0xMjM="
       type  = "String"
+    },
+    DB_NAME = {
+      value = "dHJhdmVsYXBwLWRi"
+      type  = "String"
+    },
+    DB_USERNAME = {
+      value = "YWRtaW4="
+      type  = "String"
+    },
+    DB_PASSWORD = {
+      value = "YWRtaW4xMjM="
+      type  = "SecureString"
     }
   }
 }
 
-module "ecs_service" {
-  source = "./Modules/ecs//service"
-
-  service_name        = "travelapp-service"
-  cluster_id          = module.ecs_cluster.ecs_cluster_id
-  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
-  launch_type         = "FARGATE"
-
-  subnets_id         = module.vpc.public_subnets_id
-  security_groups_id = [module.public_sg.security_group_id]
-}
+#module "ecs_service" {
+#  source = "./Modules/ecs//service"
+#
+#  service_name        = "travelapp-service"
+#  cluster_id          = module.ecs_cluster.ecs_cluster_id
+#  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
+#  launch_type         = "FARGATE"
+#
+#  subnets_id         = module.vpc.public_subnets_id
+#  security_groups_id = [module.public_sg.security_group_id]
+#}

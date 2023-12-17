@@ -6,6 +6,6 @@ resource "aws_ssm_parameter" "main" {
   value = base64decode(each.value.value)
 
   tags = {
-    Name = "${each.key}-tag"
+    Name = "${each.key}"
   }
 }

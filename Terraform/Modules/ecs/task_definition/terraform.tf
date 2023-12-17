@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "main" {
       ]
       secrets = [
         {
-          name      = "DB_HOSTNAME"
+          name      = "DB_HOST"
           valueFrom = var.db_hostname_value
         }
       ]

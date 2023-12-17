@@ -3,5 +3,5 @@ output "ssm_param_arns" {
 }
 
 output "ssm_db_host" {
-  value = aws_ssm_parameter.main["DB_HOSTNAME"].arn
+  value = aws_ssm_parameter.main["DB_HOST"].arn
 }

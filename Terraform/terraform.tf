@@ -5,11 +5,16 @@ terraform {
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
+  required_providers {
+    sops = {
+      source = "carlpett/sops"
+      version = "~> 0.5"
+    }
+  }
 }
 
 provider "aws" {
   region = "us-east-1"
-
   default_tags {
     tags = {
       Environment = "Test"
@@ -18,6 +23,8 @@ provider "aws" {
     }
   }
 }
+
+provider "sops" {}
 
 module "vpc" {
   source = "./Modules//vpc"
@@ -116,30 +123,11 @@ module "ecs_taskdef_travelapp" {
   image             = module.ecr.ecr_repo_url
   container_port    = 80
   host_port         = 80
-  db_hostname_value = module.ecs_ssm.ssm_db_host
+  db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_SOPS
 }
 
-module "ecs_ssm" {
-  source = "./Modules//ssm"
-
-  ssm_parameters = {
-    DB_HOSTNAME = {
-      value = "ZGItaG9zdC0xMjM="
-      type  = "String"
-    }
-  }
-}
-
-module "ecs_service" {
-  source = "./Modules/ecs//service"
-
-  service_name        = "travelapp-service"
-  cluster_id          = module.ecs_cluster.ecs_cluster_id
-  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
-  launch_type         = "FARGATE"
-
-  subnets_id         = module.vpc.public_subnets_id
-  security_groups_id = [module.public_sg.security_group_id]
+module "ecs_ssm_sops" {
+  source = "./Modules//ssm_sops"
 }
 
 module "rds" {

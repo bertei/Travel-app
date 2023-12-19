@@ -5,6 +5,12 @@ variable "db_name" {
   default     = null
 }
 
+variable "identifier" {
+  type        = string
+  description = "Database identifier"
+  default     = null
+}
+
 variable "engine" {
   type        = string
   description = "Engine name"
@@ -14,6 +20,18 @@ variable "engine" {
 variable "engine_ver" {
   type        = string
   description = "Engine version"
+  default     = null
+}
+
+variable "db_username" {
+  type        = string
+  description = "Database username"
+  default     = null
+}
+
+variable "db_password" {
+  type        = string
+  description = "Database password"
   default     = null
 }
 
@@ -41,13 +59,6 @@ variable "skip_final_snapshot" {
   default     = true
 }
 
-variable "vpc_security_group_ids" {
-  type        = list(string)
-  description = "List of VPC security groups to associate."
-  default     = []
-}
-
-
 #Database subnet group variables
 variable "db_subnet_group_name" {
   type        = string
@@ -62,6 +73,7 @@ variable "subnet_ids" {
 }
 
 variable "vpc_security_group_ids" {
-  type = list(string)
+  type = any
   description = "List of VPC SG's."
+  default = []
 }

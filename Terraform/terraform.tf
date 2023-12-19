@@ -123,7 +123,7 @@ module "ecs_taskdef_travelapp" {
   image             = module.ecr.ecr_repo_url
   container_port    = 80
   host_port         = 80
-  db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_SOPS
+  db_hostname_value = module.rds.rds_db_hostname
 }
 
 module "ecs_ssm_sops" {
@@ -134,11 +134,15 @@ module "rds" {
   source = "./Modules//rds"
 
   #Config parameters
-  db_name           = "travelapp-rds"
+  db_name           = "travelapprds"
+  identifier        = "travelapp-identifier"
+  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
+  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
   engine            = "mysql"
   engine_ver        = "8.0.33"
   instance_class    = "db.t3.micro"
   apply_immediately = true
+  allocated_storage = 20
 
   #Networking parameters
   subnet_ids             = module.vpc.public_subnets_id

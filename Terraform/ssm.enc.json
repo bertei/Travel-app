@@ -1,0 +1,24 @@
+{
+	"DB_HOSTNAME": "ENC[AES256_GCM,data:7bdSiA==,iv:yZtv1bjPq3N5vMcfHRN2UGxZXeaHMad4t8lZH7g8Qo8=,tag:X1SHCmZylHPJTI/FxLti8g==,type:str]",
+	"DB_USERNAME": "ENC[AES256_GCM,data:yLYRrtOlDA==,iv:z/ChGp6PmKw3MTXpKx1kUEGM8IppH5PVKnTS9ExfQIc=,tag:HMfJUe4A7WCkSx731d0FMA==,type:str]",
+	"DB_PASSWORD": "ENC[AES256_GCM,data:U5vMvdnmC9ezO2nd,iv:z8tMyE4Q/IPhPrITQPdG7ntBraK8ANxEoidllIR+I+g=,tag:tulQW5D1V1JT1Xqa+5RZ1g==,type:str]",
+	"sops": {
+		"kms": [
+			{
+				"arn": "arn:aws:kms:us-east-1:378842471989:key/7cd0af20-76f1-45f3-bc8a-5cea34a085f1",
+				"created_at": "2023-12-18T02:57:34Z",
+				"enc": "AQICAHjFSbNwP4sDZrBgJBSuUGTDabqFwB1Hj1XNEpdXunTE9gHhoozeDOR6MBj5O+AxxjS3AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM0RfHjzBz0OHIx8d/AgEQgDtXUIR5tGvq5O9yvzR5fVUBi841g45OXupODFTMC4rKeOiyl1hE2OuHyGjBpgQjze7CXqAXslWw4HcxNw==",
+				"aws_profile": ""
+			}
+		],
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": null,
+		"lastmodified": "2023-12-19T00:29:48Z",
+		"mac": "ENC[AES256_GCM,data:6gxMJPZjomBj5GI1Owj5IxaQzigjm+MloF2vz8tICHJagEQNK3WODtBCkBl/Eod2cm8+w48MS2LbeOYATdOpWDAUeJTjj8VFIIVjG0Att7PyjUDsvqRoDYerZQeIwuAVjiGB0QE+jrwdT14Ug6jY6WK4sXpduNRz8Vd3w4wYMeE=,iv:8ExLtn2Wko/Pjf57hXjRGbW1rKJUdQWT4iu8p3IZ6EY=,tag:o8ujudctKnKnL3L4qYQuwg==,type:str]",
+		"pgp": null,
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.8.1"
+	}
+}

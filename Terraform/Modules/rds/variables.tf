@@ -59,6 +59,12 @@ variable "skip_final_snapshot" {
   default     = true
 }
 
+variable "publicly_accessible" {
+  type        = bool
+  default     = true
+}
+
+
 #Database subnet group variables
 variable "db_subnet_group_name" {
   type        = string

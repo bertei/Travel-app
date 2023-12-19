@@ -146,5 +146,8 @@ module "rds" {
 
   #Networking parameters
   subnet_ids             = module.vpc.public_subnets_id
-  vpc_security_group_ids = module.public_sg.security_group_id
+  vpc_security_group_ids = module.rds_public_sg.security_group_id
+  
+  #DB subnet group
+  db_subnet_group_name = "travelapp-group"
 }

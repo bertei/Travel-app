@@ -1,5 +1,5 @@
 output "DB_HOSTNAME_SOPS" {
-  value = nonsensitive(data.sops_file.sops_secret.data["DB_HOSTNAME"])
+  value = nonsensitive(data.sops_file.sops_secret.data["DB_HOSTNAME"]).arn
 }
 
 output "DB_USERNAME_SOPS" {
@@ -8,6 +8,6 @@ output "DB_USERNAME_SOPS" {
 }
 
 output "DB_PASSWORD_SOPS" {
-  value = data.sops_file.sops_secret.data["DB_USERNAME"]
+  value = data.sops_file.sops_secret.data["DB_PASSWORD"]
   sensitive = true
 }

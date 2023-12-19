@@ -11,7 +11,7 @@ resource "aws_db_instance" "main" {
   skip_final_snapshot = var.skip_final_snapshot
   username            = var.db_username
   password            = var.db_password
-
+  publicly_accessible = var.publicly_accessible
   #Networking
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [var.vpc_security_group_ids]

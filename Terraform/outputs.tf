@@ -27,10 +27,13 @@ output "ecs_cluster_id" {
 }
 
 ##SSM
-output "ssm_param_arns" {
-  value = module.ecs_ssm.ssm_param_arns
-}
-
-output "ssm_db_host" {
-  value = module.ecs_ssm.ssm_db_host
+#output "ssm_param_arns" {
+#  value = module.ecs_ssm.ssm_param_arns
+#}
+#
+#output "ssm_db_host" {
+#  value = module.ecs_ssm.ssm_db_host
+#}
+output "DB_HOSTNAME_SOPS" {
+  value = module.ecs_ssm_sops.DB_HOSTNAME_SOPS
 }

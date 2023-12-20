@@ -31,6 +31,7 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_DB_HOSTNAME_ARN"></a> [DB\_HOSTNAME\_ARN](#output\_DB\_HOSTNAME\_ARN) | n/a |
 | <a name="output_DB_HOSTNAME_SOPS"></a> [DB\_HOSTNAME\_SOPS](#output\_DB\_HOSTNAME\_SOPS) | n/a |
 | <a name="output_DB_PASSWORD_SOPS"></a> [DB\_PASSWORD\_SOPS](#output\_DB\_PASSWORD\_SOPS) | n/a |
 | <a name="output_DB_USERNAME_SOPS"></a> [DB\_USERNAME\_SOPS](#output\_DB\_USERNAME\_SOPS) | n/a |

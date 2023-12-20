@@ -42,6 +42,10 @@ output "db_password_sops" {
   sensitive = true
 }
 
+output "DB_HOSTNAME_ARN" {
+  value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
+}
+
 ##RDS
 output "rds_db_hostname" {
   value = module.rds.rds_db_hostname

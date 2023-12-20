@@ -123,7 +123,7 @@ module "ecs_taskdef_travelapp" {
   image             = module.ecr.ecr_repo_url
   container_port    = 80
   host_port         = 80
-  db_hostname_value = module.rds.rds_db_hostname
+  db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
 }
 
 module "ecs_ssm_sops" {

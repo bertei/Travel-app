@@ -124,6 +124,8 @@ module "ecs_taskdef_travelapp" {
   container_port    = 80
   host_port         = 80
   db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
+  db_username_value = module.ecs_ssm_sops.DB_USERNAME_ARN
+  db_password_value = module.ecs_ssm_sops.DB_PASSWORD_ARN
 }
 
 #module "ecs_service" {

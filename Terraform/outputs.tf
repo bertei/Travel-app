@@ -46,6 +46,14 @@ output "DB_HOSTNAME_ARN" {
   value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
 }
 
+output "DB_USERNAME_ARN" {
+  value = module.ecs_ssm_sops.DB_USERNAME_ARN
+}
+
+output "DB_PASSWORD_ARN" {
+  value = module.ecs_ssm_sops.DB_PASSWORD_ARN
+}
+
 ##RDS
 output "rds_db_hostname" {
   value = module.rds.rds_db_hostname

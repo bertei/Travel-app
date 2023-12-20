@@ -15,3 +15,11 @@ output "DB_PASSWORD_SOPS" {
 output "DB_HOSTNAME_ARN" {
   value = aws_ssm_parameter.main["DB_HOSTNAME"].arn
 }
+
+output "DB_USERNAME_ARN" {
+  value = aws_ssm_parameter.main["DB_USERNAME"].arn
+}
+
+output "DB_PASSWORD_ARN" {
+  value = aws_ssm_parameter.main["DB_PASSWORD"].arn
+}

@@ -11,6 +11,7 @@ RUN apt-get update -y \
     && service apache2 start \
     && sed -i 's/index.html/index.php /g' /etc/apache2/mods-enabled/dir.conf \
     && sed -i 's/"localhost"/getenv("DB_HOST")/g' /var/www/html/config.php \
-    && sed -i 's/""/"codepass"/g' /var/www/html/config.php
+    && sed -i 's/"codeuser"/getenv("DB_USERNAME")/g' /var/www/html/config.php \
+    && sed -i 's/""/getenv("DB_PASSWORD")/g' /var/www/html/config.php
 
 CMD ["apachectl", "-D", "FOREGROUND"]

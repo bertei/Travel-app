@@ -18,6 +18,14 @@ resource "aws_ecs_task_definition" "main" {
         {
           name      = "DB_HOST"
           valueFrom = var.db_hostname_value
+        },
+        {
+          name      = "DB_USERNAME"
+          valueFrom = var.db_username_value
+        },
+        {
+          name      = "DB_PASSWORD"
+          valueFrom = var.db_password_value  
         }
       ]
     }

@@ -123,33 +123,45 @@ module "ecs_taskdef_travelapp" {
   image             = module.ecr.ecr_repo_url
   container_port    = 80
   host_port         = 80
-  db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_SOPS
+  db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
+  db_username_value = module.ecs_ssm_sops.DB_USERNAME_ARN
+  db_password_value = module.ecs_ssm_sops.DB_PASSWORD_ARN
 }
 
-##Not utilized
-#module "ecs_ssm" {
-#  source = "./Modules//ssm"
+#module "ecs_service" {
+#  source = "./Modules/ecs//service"
 #
-#  ##SSM Parameters values must be base64
-#  ssm_parameters = {
-#    DB_HOST = {
-#      value = ""
-#      type  = "String"
-#    },
-#    DB_NAME = {
-#      value = ""
-#      type  = "String"
-#    },
-#    DB_USERNAME = {
-#      value = ""
-#      type  = "String"
-#    },
-#    DB_PASSWORD = {
-#      value = ""
-#      type  = "SecureString"
-#    }
-#  }
+#  service_name        = "travelapp-service"
+#  cluster_id          = module.ecs_cluster.ecs_cluster_id
+#  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
+#  launch_type         = "FARGATE"
+#
+#  subnets_id         = module.vpc.public_subnets_id
+#  security_groups_id = [module.public_sg.security_group_id]
 #}
+
 module "ecs_ssm_sops" {
   source = "./Modules//ssm_sops"
+}
+
+module "rds" {
+  source = "./Modules//rds"
+
+  #Config parameters
+  db_name           = "travelapprds"
+  identifier        = "travelapp-identifier"
+  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
+  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
+  engine            = "mysql"
+  engine_ver        = "8.0.33"
+  instance_class    = "db.t3.micro"
+  apply_immediately = true
+  allocated_storage = 20
+
+  #Networking parameters
+  subnet_ids             = module.vpc.public_subnets_id
+  vpc_security_group_ids = module.rds_public_sg.security_group_id
+  
+  #DB subnet group
+  db_subnet_group_name = "travelapp-group"
 }

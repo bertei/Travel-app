@@ -27,13 +27,34 @@ output "ecs_cluster_id" {
 }
 
 ##SSM
-#output "ssm_param_arns" {
-#  value = module.ecs_ssm.ssm_param_arns
-#}
-#
-#output "ssm_db_host" {
-#  value = module.ecs_ssm.ssm_db_host
-#}
-output "DB_HOSTNAME_SOPS" {
+output "db_hostname_sops" {
   value = module.ecs_ssm_sops.DB_HOSTNAME_SOPS
+  sensitive = true
+}
+
+output "db_username_sops" {
+  value = module.ecs_ssm_sops.DB_USERNAME_SOPS
+  sensitive = true
+}
+
+output "db_password_sops" {
+  value = module.ecs_ssm_sops.DB_PASSWORD_SOPS
+  sensitive = true
+}
+
+output "DB_HOSTNAME_ARN" {
+  value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
+}
+
+output "DB_USERNAME_ARN" {
+  value = module.ecs_ssm_sops.DB_USERNAME_ARN
+}
+
+output "DB_PASSWORD_ARN" {
+  value = module.ecs_ssm_sops.DB_PASSWORD_ARN
+}
+
+##RDS
+output "rds_db_hostname" {
+  value = module.rds.rds_db_hostname
 }

@@ -70,3 +70,15 @@ variable "db_hostname_value" {
   description = "DB Hostname value."
   default     = null
 }
+
+variable "db_username_value" {
+  type        = any
+  description = "DB Username value."
+  default     = null
+}
+
+variable "db_password_value" {
+  type        = any
+  description = "DB Password value."
+  default     = null
+}

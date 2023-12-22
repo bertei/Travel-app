@@ -7,7 +7,7 @@ terraform {
   }
   required_providers {
     sops = {
-      source = "carlpett/sops"
+      source  = "carlpett/sops"
       version = "~> 0.5"
     }
   }
@@ -161,7 +161,17 @@ module "rds" {
   #Networking parameters
   subnet_ids             = module.vpc.public_subnets_id
   vpc_security_group_ids = module.rds_public_sg.security_group_id
-  
+
   #DB subnet group
   db_subnet_group_name = "travelapp-group"
+}
+
+module "ecs_alb" {
+  source = "./Modules//alb"
+
+  #ALB Definitions
+  alb_name    = "travelapp-alb"
+  alb_type    = "application"
+  alb_subnets = module.vpc.public_subnets_id
+  alb_sgs     = [ module.public_sg.security_group_id ]
 }

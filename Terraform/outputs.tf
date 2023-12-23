@@ -59,3 +59,16 @@ output "DB_PASSWORD_ARN" {
 output "rds_db_hostname" {
   value = module.rds.rds_db_hostname
 }
+
+##ALB
+output "alb_dns" {
+  value = module.ecs_alb.alb_dns
+}
+
+output "alb_zone_id" {
+  value = module.ecs_alb.alb_zone_id
+}
+
+output "alb_tg_arn" {
+  value = module.ecs_alb.alb_tg_arn
+}

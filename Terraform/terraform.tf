@@ -173,5 +173,12 @@ module "ecs_alb" {
   alb_name    = "travelapp-alb"
   alb_type    = "application"
   alb_subnets = module.vpc.public_subnets_id
-  alb_sgs     = [ module.public_sg.security_group_id ]
+  alb_sgs     = [module.public_sg.security_group_id]
+
+  #Target Group Definitions
+  tg_name      = "travelapp-tg"
+  tg_port      = "80"
+  tg_protocol  = "HTTP"
+  tg_targetype = "ip"
+  vpc_id       = module.vpc.vpc_id
 }

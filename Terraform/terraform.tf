@@ -7,7 +7,7 @@ terraform {
   }
   required_providers {
     sops = {
-      source = "carlpett/sops"
+      source  = "carlpett/sops"
       version = "~> 0.5"
     }
   }
@@ -128,40 +128,57 @@ module "ecs_taskdef_travelapp" {
   db_password_value = module.ecs_ssm_sops.DB_PASSWORD_ARN
 }
 
-module "ecs_service" {
-  source = "./Modules/ecs//service"
-
-  service_name        = "travelapp-service"
-  cluster_id          = module.ecs_cluster.ecs_cluster_id
-  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
-  launch_type         = "FARGATE"
-
-  subnets_id         = module.vpc.public_subnets_id
-  security_groups_id = [module.public_sg.security_group_id]
-}
+#module "ecs_service" {
+#  source = "./Modules/ecs//service"
+#
+#  service_name        = "travelapp-service"
+#  cluster_id          = module.ecs_cluster.ecs_cluster_id
+#  task_definition_arn = module.ecs_taskdef_travelapp.ecs_taskdef_arn
+#  launch_type         = "FARGATE"
+#
+#  subnets_id         = module.vpc.public_subnets_id
+#  security_groups_id = [module.public_sg.security_group_id]
+#}
 
 module "ecs_ssm_sops" {
   source = "./Modules//ssm_sops"
 }
 
-module "rds" {
-  source = "./Modules//rds"
+#module "rds" {
+#  source = "./Modules//rds"
+#
+#  #Config parameters
+#  db_name           = "travelapprds"
+#  identifier        = "travelapp-identifier"
+#  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
+#  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
+#  engine            = "mysql"
+#  engine_ver        = "8.0.33"
+#  instance_class    = "db.t3.micro"
+#  apply_immediately = true
+#  allocated_storage = 20
+#
+#  #Networking parameters
+#  subnet_ids             = module.vpc.public_subnets_id
+#  vpc_security_group_ids = module.rds_public_sg.security_group_id
+#
+#  #DB subnet group
+#  db_subnet_group_name = "travelapp-group"
+#}
 
-  #Config parameters
-  db_name           = "travelapprds"
-  identifier        = "travelapp-identifier"
-  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
-  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
-  engine            = "mysql"
-  engine_ver        = "8.0.33"
-  instance_class    = "db.t3.micro"
-  apply_immediately = true
-  allocated_storage = 20
+module "ecs_alb" {
+  source = "./Modules//alb"
 
-  #Networking parameters
-  subnet_ids             = module.vpc.public_subnets_id
-  vpc_security_group_ids = module.rds_public_sg.security_group_id
-  
-  #DB subnet group
-  db_subnet_group_name = "travelapp-group"
+  #ALB Definitions
+  alb_name    = "travelapp-alb"
+  alb_type    = "application"
+  alb_subnets = module.vpc.public_subnets_id
+  alb_sgs     = [module.public_sg.security_group_id]
+
+  #Target Group Definitions
+  tg_name      = "travelapp-tg"
+  tg_port      = "80"
+  tg_protocol  = "HTTP"
+  tg_targetype = "ip"
+  vpc_id       = module.vpc.vpc_id
 }

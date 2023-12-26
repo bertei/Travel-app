@@ -56,9 +56,9 @@ output "DB_PASSWORD_ARN" {
 }
 
 ##RDS
-output "rds_db_hostname" {
-  value = module.rds.rds_db_hostname
-}
+#output "rds_db_hostname" {
+#  value = module.rds.rds_db_hostname
+#}
 
 ##ALB
 output "alb_dns" {

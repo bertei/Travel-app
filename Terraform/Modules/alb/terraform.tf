@@ -5,7 +5,7 @@ resource "aws_alb" "main" {
   security_groups    = var.alb_sgs
 
   tags = {
-    Name = "{var.alb_name}"
+    Name = "${var.alb_name}"
   }
 }
 
@@ -17,6 +17,6 @@ resource "aws_alb_target_group" "main" {
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = "{var.tg_name}"
+    Name = "${var.tg_name}"
   }
 }

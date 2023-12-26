@@ -144,27 +144,27 @@ module "ecs_ssm_sops" {
   source = "./Modules//ssm_sops"
 }
 
-module "rds" {
-  source = "./Modules//rds"
-
-  #Config parameters
-  db_name           = "travelapprds"
-  identifier        = "travelapp-identifier"
-  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
-  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
-  engine            = "mysql"
-  engine_ver        = "8.0.33"
-  instance_class    = "db.t3.micro"
-  apply_immediately = true
-  allocated_storage = 20
-
-  #Networking parameters
-  subnet_ids             = module.vpc.public_subnets_id
-  vpc_security_group_ids = module.rds_public_sg.security_group_id
-
-  #DB subnet group
-  db_subnet_group_name = "travelapp-group"
-}
+#module "rds" {
+#  source = "./Modules//rds"
+#
+#  #Config parameters
+#  db_name           = "travelapprds"
+#  identifier        = "travelapp-identifier"
+#  db_username       = module.ecs_ssm_sops.DB_USERNAME_SOPS
+#  db_password       = module.ecs_ssm_sops.DB_PASSWORD_SOPS
+#  engine            = "mysql"
+#  engine_ver        = "8.0.33"
+#  instance_class    = "db.t3.micro"
+#  apply_immediately = true
+#  allocated_storage = 20
+#
+#  #Networking parameters
+#  subnet_ids             = module.vpc.public_subnets_id
+#  vpc_security_group_ids = module.rds_public_sg.security_group_id
+#
+#  #DB subnet group
+#  db_subnet_group_name = "travelapp-group"
+#}
 
 module "ecs_alb" {
   source = "./Modules//alb"

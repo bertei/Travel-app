@@ -192,3 +192,11 @@ module "ecs_r53" {
   alias_name   = module.ecs_alb.alb_dns
   alias_zoneid = module.ecs_alb.alb_zone_id
 }
+
+module "ecs_acm" {
+  source = "./Modules//acm"
+
+  domain_name       = "resume.bernatei.com"
+  validation_method = "DNS"
+  acm_tag_name      = "travelapp-acm"
+}

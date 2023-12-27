@@ -182,3 +182,13 @@ module "ecs_alb" {
   tg_targetype = "ip"
   vpc_id       = module.vpc.vpc_id
 }
+
+module "ecs_r53" {
+  source = "./Modules//r53"
+
+  #R53 Definitions
+  record_name  = "travelapp.bernatei.com"
+  record_type  = "A"
+  alias_name   = module.ecs_alb.alb_dns
+  alias_zoneid = module.ecs_alb.alb_zone_id
+}

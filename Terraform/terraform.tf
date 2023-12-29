@@ -196,7 +196,7 @@ module "ecs_r53" {
 module "ecs_acm" {
   source = "./Modules//acm"
 
-  domain_name       = "resume.bernatei.com"
+  domain_name       = "travelapp.bernatei.com"
   validation_method = "DNS"
   acm_tag_name      = "travelapp-acm"
 }

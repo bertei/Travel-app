@@ -60,6 +60,11 @@ output "DB_PASSWORD_ARN" {
 #  value = module.rds.rds_db_hostname
 #}
 
+##ACM
+output "acm_arn" {
+  value = module.ecs_acm.acm_arn
+}
+
 ##ALB
 output "alb_dns" {
   value = module.ecs_alb.alb_dns

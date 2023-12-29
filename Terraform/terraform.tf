@@ -175,6 +175,26 @@ module "ecs_alb" {
   alb_subnets = module.vpc.public_subnets_id
   alb_sgs     = [module.public_sg.security_group_id]
 
+  #ALB Listener HTTPS
+  enable_https_listener      = true
+  https_listener_tag         = "travelapp-https-listener"
+  https_listener_port        = 443
+  https_listener_protocol    = "HTTPS"
+  https_ssl_policy           = "ELBSecurityPolicy-2016-08"
+  https_listener_action_type = "forward"
+  https_certificate_arn      = module.ecs_acm.acm_arn
+  https_target_group_arn     = module.ecs_alb.alb_tg_arn
+
+  #ALB Listener HTTP
+  enable_http_listener      = true
+  http_listener_tag         = "travelapp-https-listener"
+  http_listener_port        = 80
+  http_listener_protocol    = "HTTP"
+  http_listener_action_type = "redirect"
+  redirect_port             = 443
+  redirect_protocol         = "HTTPS"
+  redirect_status_code      = "HTTP_301"
+
   #Target Group Definitions
   tg_name      = "travelapp-tg"
   tg_port      = "80"

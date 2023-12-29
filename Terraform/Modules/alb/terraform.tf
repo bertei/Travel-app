@@ -20,3 +20,17 @@ resource "aws_alb_target_group" "main" {
     Name = "${var.tg_name}"
   }
 }
+
+#resource "aws_alb_listener" "main" {
+#  
+#  load_balancer_arn = aws_alb.main.arn
+#  port              = var.listener_port
+#  protocol          = var.listener_protocol
+#  ssl_policy        = var.ssl_policy
+#  certificate_arn   = var.certificate_arn
+#
+#  default_action {
+#    type             = var.listener_action_type
+#    target_group_arn = var.target_group_arn
+#  }
+#}

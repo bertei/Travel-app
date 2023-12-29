@@ -23,6 +23,52 @@ variable "alb_sgs" {
   default     = []
 }
 
+#ALB Listener
+variable "listener_port" {
+  type        = number
+  description = " (Optional) Port on which the load balancer is listening. Not valid for Gateway Load Balancers."
+  default     = null
+}
+
+variable "listener_protocol" {
+  type        = string
+  description = "(Optional) Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are HTTP and HTTPS, with a default of HTTP."
+  default     = null
+}
+
+variable "ssl_policy" {
+  type        = string
+  description = "(Optional) Name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
+  default     = null
+}
+
+variable "certificate_arn" {
+  type        = string
+  description = "(Optional) ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS."
+  default     = null
+}
+
+variable "listener_action_type" {
+  type        = string
+  description = "(Required) Type of routing action. Valid values are forward, redirect, fixed-response, authenticate-cognito and authenticate-oidc."
+  default     = null
+}
+
+variable "target_group_arn" {
+  type        = string
+  description = "ARN of the Target Group to which to route traffic. Specify only if type is forward and you want to route to a single target group. To route to one or more target groups, use a forward block instead."
+  default     = null
+}
+
+#variable "alb_listeners" {
+#  type = any
+#  description = "List of alb listeners"
+#}
+
+#variable "default_actions" {
+#  type = any
+#  description = "List of dynamic actions"
+#}
 #Target group
 variable "tg_name" {
   type        = string

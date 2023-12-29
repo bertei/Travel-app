@@ -175,6 +175,10 @@ module "ecs_alb" {
   alb_subnets = module.vpc.public_subnets_id
   alb_sgs     = [module.public_sg.security_group_id]
 
+  #ALB Listener Definitions
+  
+ 
+
   #Target Group Definitions
   tg_name      = "travelapp-tg"
   tg_port      = "80"

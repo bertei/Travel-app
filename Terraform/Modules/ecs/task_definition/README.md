@@ -32,6 +32,7 @@ No modules.
 | <a name="input_container_port"></a> [container\_port](#input\_container\_port) | Container Port, the one which will be open for connections. | `number` | `0` | no |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | CPU to allocate | `number` | `512` | no |
 | <a name="input_db_hostname_value"></a> [db\_hostname\_value](#input\_db\_hostname\_value) | DB Hostname value. | `any` | `null` | no |
+| <a name="input_db_name_value"></a> [db\_name\_value](#input\_db\_name\_value) | DB Name value. | `any` | `null` | no |
 | <a name="input_db_password_value"></a> [db\_password\_value](#input\_db\_password\_value) | DB Password value. | `any` | `null` | no |
 | <a name="input_db_username_value"></a> [db\_username\_value](#input\_db\_username\_value) | DB Username value. | `any` | `null` | no |
 | <a name="input_host_port"></a> [host\_port](#input\_host\_port) | Host Port | `number` | `0` | no |

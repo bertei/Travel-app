@@ -57,7 +57,6 @@ output "DB_PASSWORD_ARN" {
 
 output "DB_NAME_ARN" {
   value = module.ecs_ssm_sops.DB_NAME_ARN
-  sensitive = true
 }
 
 ##RDS

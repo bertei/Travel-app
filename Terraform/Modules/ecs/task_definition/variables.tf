@@ -65,6 +65,7 @@ variable "host_port" {
   default     = 0
 }
 
+#ENV Variables
 variable "db_hostname_value" {
   type        = any
   description = "DB Hostname value."
@@ -80,5 +81,11 @@ variable "db_username_value" {
 variable "db_password_value" {
   type        = any
   description = "DB Password value."
+  default     = null
+}
+
+variable "db_name_value" {
+  type        = any
+  description = "DB Name value."
   default     = null
 }

@@ -55,10 +55,15 @@ output "DB_PASSWORD_ARN" {
   value = module.ecs_ssm_sops.DB_PASSWORD_ARN
 }
 
+output "DB_NAME_ARN" {
+  value = module.ecs_ssm_sops.DB_NAME_ARN
+  sensitive = true
+}
+
 ##RDS
-#output "rds_db_hostname" {
-#  value = module.rds.rds_db_hostname
-#}
+output "rds_db_hostname" {
+  value = module.rds.rds_db_hostname
+}
 
 ##ACM
 output "acm_arn" {

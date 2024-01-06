@@ -126,6 +126,7 @@ module "ecs_taskdef_travelapp" {
   db_hostname_value = module.ecs_ssm_sops.DB_HOSTNAME_ARN
   db_username_value = module.ecs_ssm_sops.DB_USERNAME_ARN
   db_password_value = module.ecs_ssm_sops.DB_PASSWORD_ARN
+  db_name_value     = module.ecs_ssm_sops.DB_NAME_ARN
 }
 
 module "ecs_service" {

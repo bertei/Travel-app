@@ -15,8 +15,8 @@
 		"azure_kv": null,
 		"hc_vault": null,
 		"age": null,
-		"lastmodified": "2023-12-20T13:20:49Z",
-		"mac": "ENC[AES256_GCM,data:Uqxd339n/KVF2n8qf+B16n5TpCyIt1Rg4ReMoI5peoufzT/woOxALJSEZC6NEIZo2NRq3Ha+s5O4rFJCsDBAY8SaqKTY6yOy50TMPRgQlCRXSFe0PEyZvRJG6tzSbytk8HA1ys1KIpaK3swQ08NnezMioB+KS+VBaX5Gnjc3bIk=,iv:pqVLwV+Rygq+m4O4FNKU0XAyCbNO3eFZBVAQ+MsGuNg=,tag:AL1j0JlgBIVyEZ1VA6ssmg==,type:str]",
+		"lastmodified": "2024-01-06T21:51:25Z",
+		"mac": "ENC[AES256_GCM,data:bbBkf2Ju1SkY6tJkU3kLLqP/lVECkis9hmnrEsuQOKGxNgx1lcxs0mHZAv6tG9u6y5/ajZr3cotQKMWj53unsc7TffE88aekJ2q9qy/ztRPEHJqBquW4ZOIFbhm+V9QAcKWLwg3X1yynyUZ7buMsNXlRVXTbjbh1lZisTud2YMQ=,iv:sWDSDJ1fpkoUQyEHTeBaAZSchjEvMoDRN16xMNQeWTk=,tag:ZsOn720HjiKD6KBStEXj6A==,type:str]",
 		"pgp": null,
 		"unencrypted_suffix": "_unencrypted",
 		"version": "3.8.1"

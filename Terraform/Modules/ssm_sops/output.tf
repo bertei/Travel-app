@@ -12,6 +12,7 @@ output "DB_PASSWORD_SOPS" {
   sensitive = true
 }
 
+#The ones ecs task def needs to set up the env vars.
 output "DB_HOSTNAME_ARN" {
   value = aws_ssm_parameter.main["DB_HOSTNAME"].arn
 }
@@ -22,4 +23,8 @@ output "DB_USERNAME_ARN" {
 
 output "DB_PASSWORD_ARN" {
   value = aws_ssm_parameter.main["DB_PASSWORD"].arn
+}
+
+output "DB_NAME_ARN" {
+  value = aws_ssm_parameter.main["DB_NAME"].arn
 }

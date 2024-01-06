@@ -26,6 +26,10 @@ resource "aws_ecs_task_definition" "main" {
         {
           name      = "DB_PASSWORD"
           valueFrom = var.db_password_value  
+        },
+        {
+          name      = "DB_NAME"
+          valueFrom = var.db_name_value
         }
       ]
     }
